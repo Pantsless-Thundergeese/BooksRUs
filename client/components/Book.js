@@ -30,6 +30,17 @@ export default function Book(props) {
     isbn_type = 'N/A';
   }
   console.log('props.book.volumeInfo.infoLink');
+  console.log(user.likedBooks)
+  React.useEffect(() => {
+    for (let i = 0; i < user.likedBooks.length; i++) {
+      console.log('HERE',user.likedBooks[i].isbn)
+      console.log('THERE',isbn);
+      if (user.likedBooks[i].isbn === isbn) {
+        if (!liked) setLiked(true);
+      }
+    }
+  })
+
   // shortening description return string in search
   let descriptionStr
   if (!props.book.volumeInfo.description) {
@@ -88,17 +99,14 @@ export default function Book(props) {
 
       {
         isLogged
-        ? <button onClick={handleLike}> Like</button>
+        ? liked
+          ? <div>You already like that book!</div>
+          : <button onClick={handleLike}> Like</button>
         : <div>Log in to save to favorites</div>
       }
       <br></br>
       <br></br>
-      <br></br>
-      {
-        liked
-          ? <div className="LikedBook">You already like that book!</div>
-          : <div></div>
-      }      
+      <br></br>    
     </div>
   );
 }
