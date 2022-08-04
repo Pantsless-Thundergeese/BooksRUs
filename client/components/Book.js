@@ -57,8 +57,13 @@ export default function Book(props) {
     price = '$' + props.book.saleInfo.listPrice.amount;
   }
 
+  let author = 'N/A';
+  if (props.book.volumeInfo.authors[0]) {
+    author = props.book.volumeInfo.authors[0];
+  }
   const bookData = {
     name: props.book.volumeInfo.title,
+    author: author,
     description: descriptionStr,
     isbn: isbn, // props.book.volumeInfo.industryIdentifiers[1].identifier,
     price: price,
@@ -99,6 +104,7 @@ export default function Book(props) {
     <div className='IndividualBook'>
       <h3>Book Name: {bookData.name} </h3>
       <img src={bookData.imageUrl} />
+      <h4>Author: {bookData.author}</h4>
       <h4>
         {isbn_type}: {bookData.isbn}
       </h4>

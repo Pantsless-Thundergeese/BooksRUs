@@ -15,6 +15,8 @@ bookController.like = async (req, res, next) => {
     book = await Book.create({
       name: bookData.name,
       description: bookData.description,
+      author: bookData.author,
+      price: bookData.price,
       isbn: bookData.isbn,
       imageUrl: bookData.imageUrl,
       moreInfo: bookData.moreInfo,

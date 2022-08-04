@@ -36,6 +36,12 @@ const bookSchema = new mongoose.Schema({ // name, desc, isbn, imageUrl, moreInfo
     type: String,
     required: true
   },
+  author: {
+    type: String
+  },
+  price: {
+    type: String,
+  },
   description: {
     type: String,
   },
