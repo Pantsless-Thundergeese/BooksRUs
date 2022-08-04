@@ -47,7 +47,7 @@ export default function search() {
   };
 
   return (
-    <div class='centered'>
+    <div className='centered'>
       <div className='searchBody'>
         <h1
           className='searchbar'
@@ -97,7 +97,7 @@ export default function search() {
         <div className='favorite_books'>
           <div className='card text-center'>
             <div className='card-body'>
-              <h3 className='card-title'>Results</h3>
+              <h2 className='centered card-title'>Search Results</h2>
               <p className='card-text'></p>
               {books}
             </div>

@@ -6,6 +6,14 @@ const CartItem = (props) => {
   const removeFromCart = useStoreActions(
     (actions) => actions.removeFromCart
   );
+  let descriptionStr;
+  if (props.book.description) {
+    if (props.book.description.length > 250) {
+      descriptionStr = props.book.description.substring(0, 250);
+    } else {
+      descriptionStr = props.book.description
+    }
+  }
   return (
       
     <div className="centered cart-item">
@@ -17,7 +25,7 @@ const CartItem = (props) => {
         <h4>Price: {props.book.price}</h4>
 
         <h4>
-          Description: {props.book.descriptionStr}...
+          Description: {descriptionStr}...
           <a href={props.book.moreInfo}>More Info</a>
         </h4>
 
