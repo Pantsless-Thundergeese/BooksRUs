@@ -77,15 +77,18 @@ export default function Profile() {
     }
     return (
       <div className='user-profile'>
-       
-
         <div>
           <div className='card text-center'>
             <div className='card-body'>
-              <h3 className='card-title'>User Profile</h3>
-              <img className ="profile-image" src={user.picture}></img>
-              <p className='card-text'>User: {user.username}</p>
-              <p className='card-text'>Email: {user.email}</p>
+              <h3 className='card-title'>Profile Page</h3>
+              <img className='profile-image' src={user.picture}></img>
+              <p className='card-text'>
+                {' '}
+                User: <span className='keywords'>{user.username}</span>
+              </p>
+              <p className='card-text'>
+                Email: <span className='keywords'> {user.email}</span>
+              </p>
             </div>
           </div>
         </div>
