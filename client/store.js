@@ -33,10 +33,11 @@ const store = createStore({
     ]
   }),
   removeFromCart: action((state, payload) => {
-    const index = state.cart.findIndex(payload)
+    const index = state.cart.findIndex((elem) => (elem === payload));
     const cart = state.cart.slice();
-    state.cart = cart.splice(index, 1)
-
+    const removed = cart.splice(index - 1, 1);
+    console.log("removed: ", removed)
+    state.cart = cart;
   })
 }, // model
   { devTools: true } //config

@@ -29,7 +29,7 @@ const CartItem = (props) => {
           <a href={props.book.moreInfo}>More Info</a>
         </h4>
 
-        <button onClick={() => {removeFromCart(props.book); e.target.style.display = 'none'}}>Remove</button>
+        <button onClick={(e) => {removeFromCart(props.book)}}>Remove</button>
         <br></br>
       </div>
 
