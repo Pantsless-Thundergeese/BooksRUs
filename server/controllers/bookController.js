@@ -72,18 +72,16 @@ bookController.unLike = async (req, res, next) => {
   if (!foundBook)
     next({ message: { err: 'err finding books in removing book from likes' } });
 
-  await User.findOneAndUpdate(
+  const result = await User.findOneAndUpdate(
     { email: email },
-    { $pull: { likedBooks: foundBook.id } }
+    { $pull: { likedBooks: foundBook.id } },
+    { new: true }
   )
     .exec()
-    .then((data) => {
-      console.log('Found and updated: ', data);
-      res.locals.data = data;
-    })
-    .catch((err) =>
-      next({ message: { err: 'err in removing book from likes' } })
-    );
+
+  const response = await Book.find({ _id: { $in: result.likedBooks }});
+  console.log('Found and updated: ', response);
+  res.locals.data = response;
   // remvove the book from book collection
   // remove the
 
