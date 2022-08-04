@@ -10,17 +10,19 @@ export default function Profile() {
   const isLogged = useStoreState((state) => state.isLogged);
   const setIsLogged = useStoreActions((actions) => actions.setIsLogged);
   const [books, setBooks] = React.useState([])
+  const updateLikedBooks = useStoreActions(actions => actions.updateLikedBooks)
   const user = useStoreState((state) => state.user);
   const updateUser = useStoreActions((actions) => actions.updateUser);
-  console.log('USER: ', user);
 
 
   React.useEffect(() => {
+  console.log('USER: ', user);
+  console.log('user likedbooks: ', user.likedBooks);
     if (!isLoaded) {
       fetch('/authorized')
       .then((data) => {
       return data.json()})
-      .then(async (data) => {
+      .then((data) => {
         if (data) {
           setLoaded(true);
           setIsLogged(true);
@@ -48,8 +50,7 @@ export default function Profile() {
           })
           .then((data) => {
             if (data) {
-              console.log('last .then data: ', data);
-              setBooks(data);
+              updateLikedBooks(data);
             } else {
               console.log('USER NOT FOUND RETURNING', data);
               navigate('/');
@@ -67,10 +68,8 @@ export default function Profile() {
 
 
   if (isLoaded) {
-    console.log(user);
     // const logoutUser = useStoreActions((actions) => actions.logout);
-    const likedBooks = books;
-    console.log('user likedbooks: ',books);
+    const likedBooks = user.likedBooks;
     const likedBooksComponents = []
     for (let i = 0; i < likedBooks.length; i++) {
       const currentBook = likedBooks[i];
