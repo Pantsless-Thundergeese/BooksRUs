@@ -43,8 +43,9 @@ export default function ProfileBooks(props) {
     <div>
       <h5>Book Name: {props.book.name} </h5>
       <img src={props.book.imageUrl} />
+      <h5>Author: {props.book.author}</h5>
+      <h5>Price: {props.book.price}</h5>
       <h5>ISBN-10: {props.book.isbn}</h5>
-
       <h5>
         Description: {descriptionStr}...
         <a href={props.book.moreInfo}>More Info</a>

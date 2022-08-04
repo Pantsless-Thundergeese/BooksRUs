@@ -21,6 +21,7 @@ const CartItem = (props) => {
       <div>
         <h4>Book Name: {props.book.name} </h4>
         <img src={props.book.imageUrl} />
+        <h4>Author: {props.book.author}</h4>
         <h4>ISBN-10: {props.book.isbn}</h4>
         <h4>Price: {props.book.price}</h4>
 
