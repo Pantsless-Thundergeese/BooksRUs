@@ -41,16 +41,19 @@ export default function ProfileBooks(props) {
 
   return (
     <div>
-      <h4>Book Name: {props.book.name} </h4>
+      <h5>Book Name: {props.book.name} </h5>
       <img src={props.book.imageUrl} />
-      <h4>ISBN-10: {props.book.isbn}</h4>
+      <h5>ISBN-10: {props.book.isbn}</h5>
 
-      <h4>
+      <h5>
         Description: {descriptionStr}...
         <a href={props.book.moreInfo}>More Info</a>
-      </h4>
-
-      <button onClick={handleBookUnlike}>Remove</button>
+      </h5>
+      <div className= 'centered'>
+        <button className='centered search-button' onClick={handleBookUnlike}>
+          Remove
+        </button>
+      </div>
       <br></br>
     </div>
   );
