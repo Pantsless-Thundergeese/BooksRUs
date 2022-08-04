@@ -24,6 +24,19 @@ const store = createStore({
   isLogged: false,
   setIsLogged: action((state, payload) => {
     state.isLogged = payload;
+  }),
+  cart: [],
+  addToCart: action((state, payload) => {
+    state.cart = [
+      ...state.cart,
+      payload
+    ]
+  }),
+  removeFromCart: action((state, payload) => {
+    const index = state.cart.findIndex(payload)
+    const cart = state.cart.slice();
+    state.cart = cart.splice(index, 1)
+
   })
 }, // model
   { devTools: true } //config
