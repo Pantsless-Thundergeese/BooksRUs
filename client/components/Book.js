@@ -5,6 +5,8 @@ export default function Book(props) {
   //import user from store
   //fetch req to /like. body should be email and bookdata {name, description,isbn,imgUrl, moreInfo}. probably need to refactor post('/like ) to fit w frontend
   const user = useStoreState((state) => state.user);
+  const [liked, setLiked] = React.useState(false);
+  const isLogged = useStoreState((state) => state.isLogged);
   const updateUser = useStoreActions((actions) => actions.updateUser);
   const likedBooks = useStoreState((state) => state.user.likedBooks);
   const updateLikedBooks = useStoreActions(
@@ -60,6 +62,9 @@ export default function Book(props) {
           console.log('returned data ', data);
           if (data.length > 0) {
             updateLikedBooks(data);
+          } else {
+            console.log('ALREADY LIKED')
+            setLiked(true)
           }
           console.log('liked books ', likedBooks);
         } /*updateUser(data)*/
@@ -81,10 +86,19 @@ export default function Book(props) {
         <a href={bookData.moreInfo}>More Info</a>
       </h4>
 
-      <button onClick={handleLike}> Like</button>
+      {
+        isLogged
+        ? <button onClick={handleLike}> Like</button>
+        : <div>Log in to save to favorites</div>
+      }
       <br></br>
       <br></br>
       <br></br>
+      {
+        liked
+          ? <div className="LikedBook">You already like that book!</div>
+          : <div></div>
+      }      
     </div>
   );
 }

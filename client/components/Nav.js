@@ -103,7 +103,7 @@ export default function () {
                   }
                 }}
               >
-                <span class='material-symbols-outlined'>shopping_cart</span>
+                <span className='material-symbols-outlined'>shopping_cart</span>
               </a>
             </li>
           </ul>

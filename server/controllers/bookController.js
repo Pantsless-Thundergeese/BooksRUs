@@ -25,9 +25,11 @@ bookController.like = async (req, res, next) => {
     .exec()
     .then((user) => {
       const arrOfBooks = user.likedBooks;
+      console.log('ARR OF BOOKS: ', arrOfBooks)
+      console.log(book._id)
       for (const bookElem of arrOfBooks) {
         // check book.isbn, if find, return
-        if (bookElem === book.id) {
+        if (bookElem.equals(book._id)) {
           console.log('book is already liked');
           res.locals.data = []; // $$$ frontend needs to know this
           return next();
@@ -41,12 +43,6 @@ bookController.like = async (req, res, next) => {
           { $push: { likedBooks: book.id } }
         )
           .exec()
-          .then((doc) => {
-            console.log(doc);
-          }) //
-          .catch((err) => {
-            console.log('update user likedbook err!!!');
-          });
 
         const user = await User.findOne({ email: email });
 

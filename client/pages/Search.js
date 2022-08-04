@@ -9,7 +9,7 @@ export default function search() {
   //display the response from api
   // the book have like button and unlike button
   const [books, setBooks] = useState([])
-
+  console.log(liked);
   // AIzaSyCII8FgqP289MMPY4J0rvIotk0mYT-eqLA
   async function queryBooks(keyWords) {
     const f = `flowers`;
