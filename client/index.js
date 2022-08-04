@@ -9,10 +9,11 @@ import Login from './pages/Login';
 import Register from './pages/Register';
 import Profile from './pages/Profile';
 import Search from './pages/Search';
+import ShoppingCart from './pages/ShoppingCart';
 import './assets/styles.scss';
 const rootElement = document.getElementById('root');
 import Nav from './components/Nav';
-import { useStoreState, useStoreActions } from 'easy-peasy';
+// import { useStoreState, useStoreActions } from 'easy-peasy';
 
 // const label = useStoreState((state) => state.label);
 
@@ -31,6 +32,7 @@ render(
 
         <Route path='/profile' element={<Profile />} />
         <Route exact path='/search' element={<Search />} />
+        <Route exact path='/cart' element={<ShoppingCart />} />
 
         <Route
           path='*'

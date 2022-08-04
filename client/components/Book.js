@@ -12,6 +12,9 @@ export default function Book(props) {
   const updateLikedBooks = useStoreActions(
     (actions) => actions.updateLikedBooks
   );
+  const addToCart = useStoreActions(
+    (actions) => actions.addToCart
+  );
   const imageUrl = props.book.volumeInfo.imageLinks
     ? Object.values(props.book.volumeInfo.imageLinks)[0]
     : 'Not found';
@@ -38,10 +41,17 @@ export default function Book(props) {
     props.book.volumeInfo.description.length < 250 ? descriptionStr = props.book.volumeInfo.description : descriptionStr = props.book.volumeInfo.description.substring(0, 250);
   }
 
+  let price = 'N/A';
+  if (props.book.saleInfo.saleability === 'FOR_SALE') {
+    price = '$' + props.book.saleInfo.listPrice.amount;
+  }
+
+
   const bookData = {
     name: props.book.volumeInfo.title,
     description: descriptionStr,
     isbn: isbn, // props.book.volumeInfo.industryIdentifiers[1].identifier,
+    price:  price,
     imageUrl: imageUrl,
     moreInfo: props.book.volumeInfo.infoLink,
   };
@@ -73,6 +83,9 @@ export default function Book(props) {
       .catch((err) => console.log('error in /books/like'));
   }
 
+  async function handleAddToCart(event) {
+  }
+
   return (
     <div className='IndividualBook'>
       <h4>Book Name: {bookData.name} </h4>
@@ -80,25 +93,38 @@ export default function Book(props) {
       <h4>
         {isbn_type}: {bookData.isbn}
       </h4>
-
+      <h4>Price: {bookData.price} </h4>
       <h4>
         Description: {descriptionStr}...
         <a href={bookData.moreInfo}>More Info</a>
       </h4>
 
-      {
-        isLogged
-        ? <button onClick={handleLike}> Like</button>
-        : <div>Log in to save to favorites</div>
-      }
+      <div
+        className='centered'
+        style={{ display: 'flex', justifyContent: 'space-evenly' }}
+      >
+        {isLogged ? (
+          <button className='centered search-button' onClick={handleLike}>
+            {' '}
+            Like
+          </button>
+        ) : (
+          <div>Log in to save to favorites</div>
+        )}
+
+        <button className='centered search-button' onClick={() => addToCart(bookData)}>
+          {' '}
+          <span class='material-symbols-outlined'>add_shopping_cart</span>{' '}
+        </button>
+      </div>
       <br></br>
       <br></br>
       <br></br>
-      {
-        liked
-          ? <div className="LikedBook">You already like that book!</div>
-          : <div></div>
-      }      
+      {liked ? (
+        <div className='LikedBook'>You already like that book!</div>
+      ) : (
+        <div></div>
+      )}
     </div>
   );
 }
