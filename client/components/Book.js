@@ -44,6 +44,7 @@ export default function Book(props) {
 
   // shortening description return string in search
   let descriptionStr;
+  
   if (!props.book.volumeInfo.description) {
     descriptionStr = '';
   } else {
@@ -52,9 +53,19 @@ export default function Book(props) {
       : (descriptionStr = props.book.volumeInfo.description.substring(0, 250));
   }
 
+
   let price = 'N/A';
   if (props.book.saleInfo.saleability === 'FOR_SALE') {
     price = '$' + props.book.saleInfo.listPrice.amount;
+  }
+
+  //adding author
+  let author;
+  console.log("author",props.book.volumeInfo.authors);
+  if(!props.book.volumeInfo.authors){
+    author = 'N/A'
+  }else{
+    author = props.book.volumeInfo.authors[0];
   }
 
   const bookData = {
@@ -62,6 +73,7 @@ export default function Book(props) {
     description: descriptionStr,
     isbn: isbn, // props.book.volumeInfo.industryIdentifiers[1].identifier,
     price: price,
+    author: author,
     imageUrl: imageUrl,
     moreInfo: props.book.volumeInfo.infoLink,
   };
@@ -99,10 +111,13 @@ export default function Book(props) {
     <div className='IndividualBook'>
       <h3>Book Name: {bookData.name} </h3>
       <img src={bookData.imageUrl} />
+      <h4> Author : {bookData.author}</h4>
       <h4>
         {isbn_type}: {bookData.isbn}
       </h4>
+
       <h4>Price: {bookData.price} </h4>
+
       <h4>
         Description: {descriptionStr}...
         <a href={bookData.moreInfo}>More Info</a>
@@ -112,30 +127,38 @@ export default function Book(props) {
         className='centered'
         style={{ display: 'flex', justifyContent: 'space-evenly' }}
       >
-       {isLogged ? (
-        liked ? (
-          <div>You already like that book!</div>
+        {isLogged ? (
+          liked ? (
+            <div>You already like that book!</div>
+          ) : (
+            <button
+              style={{ padding: ' .3em .9em' }}
+              className='centered search-button'
+              onClick={handleLike}
+            >
+              Like
+            </button>
+          )
         ) : (
-          <button className='centered search-button' onClick={handleLike}>Like</button>
-        )
-      ) : (
-        <div>Log in to save to favorites</div>
-      )}
-      <br></br>
-      <br></br>
-      <br></br>
+          <div>Log in to save to favorites</div>
+        )}
+        <br></br>
+        <br></br>
+        <br></br>
 
         <button
           className='centered search-button'
           onClick={() => addToCart(bookData)}
         >
           {' '}
-          <span class='material-symbols-outlined'>add_shopping_cart</span>{' '}
+          <span
+            style={{ padding: ' .2em .5em' }}
+            class='material-symbols-outlined'
+          >
+            add_shopping_cart
+          </span>{' '}
         </button>
       </div>
-    
-
-      
     </div>
   );
 }
