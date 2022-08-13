@@ -22,19 +22,18 @@ body {
   font-size: 14px;
 }
 
-
 .navbar-nav {
   cursor: pointer;
-  color: #BABDCF !important;
+  color: #babdcf !important;
   display: flex !important;
   justify-content: space-evenly !important;
 }
 
 .nav-item {
-color: #BABDCF!important ;
+  color: #babdcf !important ;
 }
 .nav-item:hover {
-  background-color: #babdcf81 !important;;
+  background-color: #babdcf81 !important;
   border-radius: 10px;
   box-shadow: 1px 1px 4px rgba(153, 153, 153, 0.481);
 }
@@ -57,7 +56,7 @@ color: #BABDCF!important ;
 }
 
 .searchBody {
-font-family: 'Montserrat', sans-serif !important;
+  font-family: 'Montserrat', sans-serif !important;
 
   padding-bottom: 30px;
   width: 70%;
@@ -238,7 +237,6 @@ font-family: 'Montserrat', sans-serif !important;
 
 .favorite_books {
   padding-top: 15px;
- 
 }
 
 .searchbtn_profile {
@@ -251,13 +249,13 @@ font-family: 'Montserrat', sans-serif !important;
   align-items: center;
 }
 
-#seaRCH{
+#seaRCH {
   background-color: white;
   margin: 1em 0em;
 }
 
 .searchbtn_profile:hover {
-  background-color: #40445C;
+  background-color: #40445c;
 }
 
 .searchbar {
@@ -280,13 +278,7 @@ font-family: 'Montserrat', sans-serif !important;
   //   appearance: none;
   //   border-radius: 0.375rem;
   //   transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
-
-
 }
-
-
-
-
 
 .jumbotron {
   display: flex;
@@ -370,46 +362,44 @@ body {
   cursor: pointer;
 }
 
-.navbar-light{
-  background-color: #40445C !important;
-  color: #BABDCF !important;
+.navbar-light {
+  background-color: #40445c !important;
+  color: #babdcf !important;
   display: flex;
   justify-content: space-between !important;
   align-items: space-evenly !important;
 }
 
-.search-button{
+.search-button {
   background-color: #626990;
-  border-radius:10px;
-  border:1px solid#262626;
+  border-radius: 10px;
+  border: 1px solid#262626;
   color: #efefefb8;
   transition: all 1s;
   box-shadow: 3px 3px 5px #2626263a;
   letter-spacing: 3px;
-max-height: 3em;
-display:flex;
-justify-content: center;
-
+  max-height: 3em;
+  display: flex;
+  justify-content: center;
 }
 
-.search-button:hover{
-  background-color:#6269908b ;
+.search-button:hover {
+  background-color: #6269908b;
 }
 
-.card-body{
+.card-body {
   box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.222);
-   
 }
 
-.shipping-info{
- display:flex;
-align-items:center;
-justify-content: center;
-gap: 0.9em;
-margin:1em;
-// margin-left: 10em;
+.shipping-info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.9em;
+  margin: 1em;
+  // margin-left: 10em;
 }
-.shipping-info-cards{
+.shipping-info-cards {
   display: flex;
 
   justify-content: center;
@@ -419,53 +409,56 @@ margin:1em;
   letter-spacing: 1px;
   font-family: 'Montserrat', sans-serif;
   background-color: #40445c;
-  padding: 1em ;
+  padding: 1em;
   border-radius: 20px;
   color: #babdcf;
   box-shadow: 2px 2px 10px 10px hsla(46, 11%, 46%, 0.29);
 }
 
-.shipping-info-details{
+.shipping-info-details {
   display: grid;
-  grid-template-columns:repeat(1,1fr) ;
-  grid-template-rows:repeat(1,2fr) ;
-    height: 50%;
-  
+  grid-template-columns: repeat(1, 1fr);
+  grid-template-rows: repeat(1, 2fr);
+  height: 50%;
 }
 
-.keywords{
-  margin:1em ;
+.keywords {
+  margin: 1em;
   font-size: 15px;
- font-weight: 700 !important;
-  
+  font-weight: 700 !important;
 }
-*{
- font-family: 'Montserrat', sans-serif !important;
+* {
+  font-family: 'Montserrat', sans-serif !important;
 }
 
-.material-symbols-outlined{
-font-family: 'Material Symbols Outlined' !important;
+.material-symbols-outlined {
+  font-family: 'Material Symbols Outlined' !important;
 }
-.profile-image{
-  margin:1em;
+.profile-image {
+  margin: 1em;
   border-radius: 3px;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.198);
 }
-.IndividualBook{
+.IndividualBook {
   width: 80%;
-  display:flex;
-  flex-direction:column;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
-    align-items: center;
+  align-items: center;
 }
 
-.card-body{
-  display:flex;
+.card-body {
+  display: flex;
   // grid-template-columns: repeat(1,1fr)
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
-.card-title{
+.card-title {
   letter-spacing: 3px;
+}
+
+ .navbar-expand-lg .navbar-nav {
+  flex-direction: row;
+  width: 20em;
 }

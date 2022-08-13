@@ -18,7 +18,7 @@ export default function search() {
       .then(res => res.json())
       .then(res => {
         const queryArr = res.items;
-        console.log('???', queryArr);
+        console.log('queryArray= ', queryArr);
         const newBooks = []
         for (let i = 0; i < queryArr.length; i++) {
           newBooks.push(<Book book={queryArr[i]} key={i} />);

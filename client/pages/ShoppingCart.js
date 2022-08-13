@@ -90,12 +90,20 @@ export default function ShoppingCart() {
   return (
     <div>
       <h2 className='centered'>Cart</h2>
-      {cartItems}
-      {/* <Form> */}
-
-      <h3 className='centered' style={{margin:'2em'}}>Shipping Address</h3>
+      <div className='centered'>
+        <div
+          className='centered'
+          style={{ flexDirection: 'column', width: '50%' }}
+        >
+          {cartItems}
+        </div>
+        {/* <Form> */}
+      </div>
+      <h3 className='centered' style={{ margin: '2em' }}>
+        Shipping Address
+      </h3>
       <div style={{ width: '70%' }} className='shipping-info-cards'>
-        <div className='shipping-info-details' >
+        <div className='shipping-info-details'>
           <Form.Group className=' shipping-info'>
             <InputGroup
               fluid='true'

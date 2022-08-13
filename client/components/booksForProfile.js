@@ -40,8 +40,8 @@ export default function ProfileBooks(props) {
   }
 
   return (
-    <div>
-      <h5>Book Name: {props.book.name} </h5>
+    <div style={{ borderBottom: '1px solid black', margin:'1em' }}>
+      <h4>  {props.book.name} </h4>
       <img src={props.book.imageUrl} />
       <h5>Author: {props.book.author}</h5>
       <h5>Price: {props.book.price}</h5>
@@ -50,7 +50,7 @@ export default function ProfileBooks(props) {
         Description: {descriptionStr}...
         <a href={props.book.moreInfo}>More Info</a>
       </h5>
-      <div className= 'centered'>
+      <div className='centered'>
         <button className='centered search-button' onClick={handleBookUnlike}>
           Remove
         </button>

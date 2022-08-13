@@ -1,6 +1,7 @@
 import * as React from 'react';
 import Comment from './Comments';
 import { useStoreState, useStoreActions } from 'easy-peasy';
+import whiteHeart from '../assets/white-heart.png'
 export default function Book(props) {
   //import user from store
   //fetch req to /like. body should be email and bookdata {name, description,isbn,imgUrl, moreInfo}. probably need to refactor post('/like ) to fit w frontend
@@ -60,7 +61,7 @@ export default function Book(props) {
   }
 
   let author = 'N/A';
-  if (props.book.volumeInfo.authors[0]) {
+  if (props.book.volumeInfo.authors) {
     author = props.book.volumeInfo.authors[0];
   }
   const bookData = {
@@ -104,7 +105,10 @@ export default function Book(props) {
   async function handleAddToCart(event) {}
 
   return (
-    <div className='IndividualBook'>
+    <div
+      className='IndividualBook'
+      style={{ borderBottom: '1px solid black', margin: '1em' }}
+    >
       <h3>Book Name: {bookData.name} </h3>
       <img src={bookData.imageUrl} />
       <h4>Author: {bookData.author}</h4>
@@ -125,7 +129,9 @@ export default function Book(props) {
       >
         {isLogged ? (
           liked ? (
-            <div>You already like that book!</div>
+            <div> <img style={{height:' 1.5em',
+    width: '1.5em',
+    margin: '2em'}} src = {whiteHeart}/> </div>
           ) : (
             <button
               style={{ padding: ' .3em .9em' }}

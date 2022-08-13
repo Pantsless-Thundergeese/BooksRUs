@@ -15,27 +15,29 @@ const CartItem = (props) => {
     }
   }
   return (
-      
-    <div className="centered cart-item">
-
-      <div>
+    <div className='centered cart-item' style={{ margin: '1em' }}>
+      <div className='centered'>
         <h4>Book Name: {props.book.name} </h4>
         <img src={props.book.imageUrl} />
         <h4>Author: {props.book.author}</h4>
         <h4>ISBN-10: {props.book.isbn}</h4>
         <h4>Price: {props.book.price}</h4>
-
         <h4>
           Description: {descriptionStr}...
           <a href={props.book.moreInfo}>More Info</a>
         </h4>
 
-        <button onClick={(e) => {removeFromCart(props.book)}}>Remove</button>
+        <button
+          onClick={(e) => {
+            removeFromCart(props.book);
+          }}
+        >
+          Remove
+        </button>
         <br></br>
       </div>
-
     </div>
-  )
+  );
 }
 
 export default CartItem
